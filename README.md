@@ -6,6 +6,10 @@ This repository contains workflows and tools for performing alignment and peak c
 
 The workflows are written for analyzing genomic regions showing increased tranposase binding and chromatin accessibility measured by ATAC-seq.
 
+The workflows are essentially identical to the ChIP-seq repository workflows with differences arising in selecting proper value in --extsize command, a value that reflects the average fragment length observed in the data. This value may vary depending on the experimental setup, sequencing platform, and sample quality. 
+
+For ATAC-seq data, the DNA fragments are generally shorter due to the nature of the transposase-based assay, which fragments accessible chromatin regions. Therefore, the appropriate --extsize value for ATAC-seq data may be smaller than that used for ChIP-seq data.
+
 Aligned sequence results and peak files in `.bam` and `.narrowPeak` format can then be used to perform downstream statistical analyses such as differential binding, annotation, TSS distribution, as well as pathway and motif enrichment analyses.
 
 The workflows are written to run as containerized `SLURM` submission scripts on a high performance computing (HPC) cluster using `sbatch` `script.sh`. 
